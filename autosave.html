@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Save Textarea</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+       font-family: sans-serif;
+       margin: 1% 30%;
+       padding: 20px;
+       background-color: #fff;
+       border-radius: 8px;
+       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+       text-align: center;
+    }
+    #myTextarea{
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    }
+</style>
+<body>
+    <h1>Auto Save Textarea</h1>
+        <textarea name="area" id="myTextarea" cols="50" rows="10" placeholder="Start typing here..."></textarea>
+<script>
+ const textarea = document.getElementById('myTextarea');
+
+  function saveToLocalStorage() {
+    localStorage.setItem('savedText', textarea.value);
+ }
+
+ if (localStorage.getItem('savedText')) {
+    textarea.value = localStorage.getItem('savedText');
+ }
+
+ textarea.addEventListener('input', saveToLocalStorage);
+</script>
+</body>
+</html>
